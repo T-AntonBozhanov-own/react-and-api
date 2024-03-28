@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query" 
 import {fetcher} from './fetcher'
 
-export const useGetCategories = (categoryId) => {
+export const useGetCategories = () => {
     const { isPending, isError, data } = useQuery({queryKey: ['categories'], queryFn: async () => 
     await fetcher('get', 'https://api.rainforestapi.com/categories', {
           domain: "amazon.com",

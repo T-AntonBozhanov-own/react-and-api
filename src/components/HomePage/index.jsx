@@ -13,9 +13,7 @@ export const HomePage = () => {
     const [sortParam, setSortParam] = useState(SORT_PARAMS.FEATURED)
 
     const { data: categoriesData = [] } = useGetCategories() 
-    console.log('categories', categoriesData)
     const { data: productListData = [] } = useGetProducts(categoriesData?.data?.current_category?.id, sortParam) 
-    console.log('products', productListData)
 
     return (
         <div className={styles.container}>

@@ -20,6 +20,7 @@ export const Sidebar = ({data = [], setCategory, activeCategory, setSort, active
                 <span className={style.title}>Sort By</span>
                 {Object.keys(SORT_PARAMS_TITLE).map(key => (
                      <span 
+                        key={SORT_PARAMS[key]}
                         className={activeSort === SORT_PARAMS[key] ? style.category__active : style.category} 
                         onClick={() => setSort(SORT_PARAMS[key])}>
                          {SORT_PARAMS_TITLE[key]}
