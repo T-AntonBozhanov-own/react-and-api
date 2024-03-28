@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: installing dependecies
         run: yarn
+        working-directory: ./
+
         
       - name: build code
         run: yarn build
+        working-directory: ./
