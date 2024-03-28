@@ -1,9 +1,12 @@
-import style from './header.module.css'
+import style from './productItem.module.css'
 
-export const ProductItem = () => {
+export const ProductItem = ({image, link, price, rating, title}) => {
     return (
-        <div className={style.container}>
-            product ProductItem
-        </div>
+        <a link={link} className={style.container}>
+            <img src={image} />
+            <span>{title}</span>
+            <span>{rating}</span>
+            {/* <span>{price}</span> */}
+        </a>
     )
 }

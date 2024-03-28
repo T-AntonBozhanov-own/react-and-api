@@ -1,30 +1,24 @@
 import styles from './homePage.module.css'
-import axios from 'axios'
-import { useQuery } from '@tanstack/react-query'
 import { Header } from '../Header'
 import { Sidebar } from '../Sidebar'
 import { ProductList } from '../ProductList'
+import {useGetCategories} from '../../api/useGetCategories'
+import {useGetProducts} from '../../api/useGetProducts'
 
-// set up the request parameters
-const params = {
-    api_key: "F4E62AEF4BA247D19686FDA343682EB5",
-      domain: "amazon.com",
-      type: "standard",
-      parent_id: "2811119011"
-    }
+    
+export const HomePage = () => {    
+    const { data: categoriesData = [] } = useGetCategories() 
+    console.log('categories', categoriesData)
+    const { data: productListData = [] } = useGetProducts(categoriesData?.data?.current_category?.id) 
+    console.log('products', productListData)
 
-const fetcher = () => axios.get('https://api.rainforestapi.com/categories', { params }) 
-    
-export const HomePage = () => {
-    const { isPending, isError, data, error } = useQuery({queryKey: ['categories'], queryFn: fetcher}) 
-    console.log('categories', isPending, isError, data, error)
-    
+
     return (
         <div className={styles.container}>
             <Header />
             <div className={styles.content}>
-                <Sidebar />
-                <ProductList />
+                <Sidebar data={categoriesData?.data?.categories}/>
+                <ProductList data={productListData?.data?.category_results} />
             </div>
         </div>
     )

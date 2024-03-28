@@ -1,9 +1,10 @@
+import { ProductItem } from '../ProductItem'
 import styles from './productList.module.css'
 
-export const ProductList = () => {
+export const ProductList = ({data = []}) => {
     return (
         <div className={styles.container}>
-            product ProductList
+            {data.map(product => <ProductItem {...product} />)}
         </div>
     )
 }
