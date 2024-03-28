@@ -2,7 +2,7 @@ name: api and react
 on: 
   push: 
     branches: 
-      - main
+      - master
 jobs:
   deployment:
     name: deployment-job
