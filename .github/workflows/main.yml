@@ -1,0 +1,17 @@
+name: api and react
+on: 
+  push: 
+    branches: 
+      - main
+jobs:
+  deployment:
+    name: deployment-job
+    runs-on: ubuntu-latest
+    environment: 
+      name: api_and_eact
+    steps:
+      - name: installing dependecies
+        run: yarn
+        
+      - name: build code
+        run: yarn build
