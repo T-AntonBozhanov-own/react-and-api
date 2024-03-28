@@ -1,5 +1,5 @@
-This app allows user to browse amazon products in category 'Electonics'
-User can select sub categories and change sorting
+This app allows user to browse amazon products in category 'Electonics' using rainforest API
+User can select sub categories and change sorting order
 
 Component tree
 
